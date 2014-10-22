@@ -34,7 +34,7 @@ colorscheme hybrid"Tomorrow-Night-Eighties
 "else
   "colorscheme hybrid
 "endif
-
+set cursorline
 
 " originalrepos on github
 NeoBundle 'Shougo/neobundle.vim'
