@@ -9,7 +9,10 @@ filetype off
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
+  "call neobundle#rc(expand('~/.vim/bundle/'))
+  call neobundle#begin(expand('~/.vim/bundle/'))
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  call neobundle#end()
 endif
 
 nnoremap <silent> :E :e#<CR>
@@ -216,4 +219,26 @@ if executable('ag')
 endif
 "NeoBundle 'rking/ag.vim'
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ctrlp.vim (ファイル検索）
+" http://kien.github.io/ctrlp.vim/
+" http://mattn.kaoriya.net/software/vim/20111228013428.htm
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_user_command = ['.git', 'cd %s && find . -type f | grep -v .git']
+" ag入ってたらagで検索させる
+" ついでにキャッシュファイルからの検索もさせない
+" http://celt.hatenablog.jp/entry/2014/07/11/205308
+"if executable('ag')
+"  let g:ctrlp_use_caching = 0
+"  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
+"endif
 
+"NeoBundle 'L9'
+"NeoBundle 'FuzzyFinder'
+
+
+
+" http://qiita.com/kentaro/items/833075356d41e9d9bc75
+" NeoBundle 'vim-scripts/vim-auto-save'
+" デフォルトで有効にする
+" let g:auto_save = 1
