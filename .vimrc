@@ -24,18 +24,13 @@ NeoBundle 'ywjno/vim-tomorrow-theme'
 " ------------------------------------------------------
 syntax on
 filetype indent on
-"colorscheme morning
-"colorscheme desert
-"set noautoindent
-"set background=dark
-"set background=light
 " tmux 使用時に t_Co=256 がないと色が反映されない
 set t_Co=256
-"colorscheme tomorrow-night-bright
+colorscheme tomorrow-night-bright
 "if ($ft=='ruby')
-colorscheme hybrid"Tomorrow-Night-Eighties
+"  colorscheme hybrid"Tomorrow-Night-Eighties
 "else
-  "colorscheme hybrid
+"  colorscheme hybrid
 "endif
 set cursorline
 
@@ -90,8 +85,12 @@ NeoBundle 'tpope/vim-endwise.git'
 NeoBundle 'ruby-matchit'
 NeoBundle 'vim-scripts/dbext.vim'
 
-" 補完
-NeoBundle 'taichouchou2/vim-rsense'
+" コード補完
+" NeoBundle 'taichouchou2/vim-rsense'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'marcus/rsense'
+NeoBundle 'supermomonga/neocomplete-rsense.vim'
+
 " コメント
 NeoBundle 'tomtom/tcomment_vim'
 " railsサポート
@@ -201,6 +200,7 @@ let g:indentLine_char = '|'
 
 NeoBundle 'tpope/vim-fugitive'
 
+NeoBundle 'rking/ag.vim'
 
 "
 " grep 関連
@@ -217,7 +217,7 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
-"NeoBundle 'rking/ag.vim'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctrlp.vim (ファイル検索）
@@ -242,3 +242,26 @@ let g:ctrlp_user_command = ['.git', 'cd %s && find . -type f | grep -v .git']
 " NeoBundle 'vim-scripts/vim-auto-save'
 " デフォルトで有効にする
 " let g:auto_save = 1
+
+
+
+" 
+" Rubyプログラミングが快適になるVim環境を0から構築する
+" http://qiita.com/mogulla3/items/42a7f6c73fa4a90b1df3
+"
+" -------------------------------
+" Rsense
+" -------------------------------
+let g:rsenseHome = "/usr/local/Cellar/rsense/0.3/libexec/"
+let g:rsenseUseOmniFunc = 1
+
+" --------------------------------
+" neocomplete.vim
+" --------------------------------
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
