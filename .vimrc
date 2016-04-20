@@ -9,7 +9,7 @@ filetype off
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  "call neobundle#rc(expand('~/.vim/bundle/'))
+ "call neobundle#rc(expand('~/.vim/bundle/'))
   call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
   call neobundle#end()
@@ -23,7 +23,7 @@ NeoBundle 'ywjno/vim-tomorrow-theme'
 " colorscheme
 " ------------------------------------------------------
 syntax on
-filetype indent on
+filetype plugin indent on
 " tmux 使用時に t_Co=256 がないと色が反映されない
 set t_Co=256
 colorscheme tomorrow-night-bright
@@ -86,9 +86,9 @@ NeoBundle 'ruby-matchit'
 NeoBundle 'vim-scripts/dbext.vim'
 
 " コード補完
-" NeoBundle 'taichouchou2/vim-rsense'
+NeoBundle 'taichouchou2/vim-rsense'
 NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'marcus/rsense'
+"NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
 
 " コメント
