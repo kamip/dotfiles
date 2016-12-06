@@ -1,5 +1,3 @@
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 function do_enter() {
     if [ -n "$BUFFER" ]; then
@@ -35,3 +33,8 @@ fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 autoload -U compinit
 compinit -u
 
+eval "$(rbenv init - zsh)"
+
+#eval `ssh-agent`
+ssh-add -K ~/.ssh/giftee_yakuruto_id_rsa
+ssh-add -K ~/.ssh/github_kamikata_rsa
